@@ -6,10 +6,6 @@
   "scripts": {
     "test": "node node_modules/mocha/bin/mocha"
   },
-  "keywords": [
-    "freecodecamp",
-    "timestamp"
-  ],
   "author": "neverendingqs",
   "license": "MIT",
   "dependencies": {
