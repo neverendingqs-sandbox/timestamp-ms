@@ -7,7 +7,11 @@ var app = express();
 var port = process.env.PORT || 3000;
 
 app.get('/', function (req, res) {
-  res.send('Hello World!');
+  var dtInput = req.query.timestamp
+    || req.query.dt
+    || null;
+
+  res.json(timestamp.parseDt(dtInput));
 });
 
 app.get('/:dtInput', function(req, res) {
