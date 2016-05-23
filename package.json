@@ -13,6 +13,7 @@
   "author": "neverendingqs",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.15.1",
     "express": "^4.13.4"
   },
   "devDependencies": {
