@@ -17,5 +17,13 @@ describe('timestamp', function() {
       assert.equal(timeDto.unix, 1463959749);
       assert.equal(timeDto.natural, "Sun, 22 May 2016 23:29:09 GMT");
     });
+
+    it('should return with proper values when input is seconds since epoch', function() {
+      var timeDto = timestamp.parseDt(1463963297);
+
+      assert.equal(timeDto.unix, 1463963297);
+      assert.equal(timeDto.natural, "Mon, 23 May 2016 00:28:17 GMT");
+    })
+
   });
 });
