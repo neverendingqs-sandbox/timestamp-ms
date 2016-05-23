@@ -25,5 +25,19 @@ describe('timestamp', function() {
       assert.equal(timeDto.natural, "Mon, 23 May 2016 00:28:17 GMT");
     })
 
+    it('should return with null values when input is null', function() {
+      var timeDto = timestamp.parseDt(null);
+
+      assert.equal(timeDto.unix, null);
+      assert.equal(timeDto.natural, null);
+    });
+
+    it('should return with null values when input is undefined', function() {
+      var timeDto = timestamp.parseDt(undefined);
+
+      assert.equal(timeDto.unix, null);
+      assert.equal(timeDto.natural, null);
+    });
+
   });
 });
