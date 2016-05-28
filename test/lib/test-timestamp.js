@@ -1,7 +1,7 @@
-var timestamp = require('.././lib/timestamp');
+var timestamp = require('../.././lib/timestamp');
 var assert = require('chai').assert;
 
-describe('timestamp', function() {
+describe('lib/timestamp', function() {
   describe('#parseDt(dtInput)', function() {
 
     it('should return with null values when input is not a date', function() {
