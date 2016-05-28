@@ -15,14 +15,7 @@ mongoclient.connect(mongoUri, function(err, db) {
 
   app.use('/timestamp', require('./routes/timestamp'));
   app.use('/keyvalue', require('./routes/keyvalue')(db));
-
-  // Must be last route to be registered
-  var error = function(req, res, next) {
-    res.status(404);
-    res.send({ error: 'Not Found' });
-    return;
-  };
-  app.use(error);
+  app.use(require('./routes/error'));       // Must be last route to be registered
 
   app.listen(port);
 });
