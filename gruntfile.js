@@ -15,7 +15,11 @@ module.exports = function(grunt) {
     },
 
     mochaTest: {
-      test: {
+      unit: {
+        src: ['test/unit/**/*.js']
+      },
+      system: {
+        options: { slow: 3000 },
         src: ['test/**/*.js']
       }
     },
@@ -49,7 +53,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-mocha-test');
 
-  grunt.registerTask('default', ['env:dev', 'jshint', 'mochaTest', 'concurrent']);
-  grunt.registerTask('test', ['jshint', 'mochaTest']);
-
+  grunt.registerTask('default', ['env:dev', 'jshint', 'mochaTest:unit', 'concurrent']);
+  grunt.registerTask('test', ['env:dev', 'jshint', 'mochaTest']);
 };

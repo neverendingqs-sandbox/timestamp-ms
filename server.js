@@ -4,15 +4,13 @@ var app = express();
 var port = process.env.PORT || 3000;
 var mongoUri = process.env.MONGODB_URI;
 
-var mongoclient = require('mongodb').MongoClient;
+var mongoclient = require('mongoskin').MongoClient;
+var db = mongoclient.connect(mongoUri);
 
-mongoclient.connect(mongoUri, function(err, db) {
-  if (err) { return console.log(err); }
+app.use('/', require('./routes/index'));
+app.use('/timestamp', require('./routes/timestamp'));
+app.use('/keyvalue', require('./routes/keyvalue')(db));
+app.use(require('./routes/error'));       // Must be last route to be registered
 
-  app.use('/', require('./routes/index'));
-  app.use('/timestamp', require('./routes/timestamp'));
-  app.use('/keyvalue', require('./routes/keyvalue')(db));
-  app.use(require('./routes/error'));       // Must be last route to be registered
-
-  app.listen(port);
-});
+app.listen(port);
+module.exports = app;
