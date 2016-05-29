@@ -1,4 +1,4 @@
-var timestamp = require('../.././lib/timestamp');
+var timestamp = require('../../../lib/timestamp');
 var assert = require('chai').assert;
 
 describe('lib/timestamp', function() {
