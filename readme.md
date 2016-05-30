@@ -21,5 +21,5 @@ Based on https://www.freecodecamp.com/challenges/timestamp-microservice.
 
 * https://neverendingqs-nodejs.herokuapp.com/timestamp/December%2015,%202015
 * https://neverendingqs-nodejs.herokuapp.com/timestamp/1450137600
-* https://neverendingqs-nodejs.herokuapp.com/timestamp?timestamp=1450137600
-* https://neverendingqs-nodejs.herokuapp.com/timestamp?dt=December%2015,%202015
+* https://neverendingqs-nodejs.herokuapp.com/timestamp?unix=1450137600
+* https://neverendingqs-nodejs.herokuapp.com/timestamp?natural=December%2015,%202015
