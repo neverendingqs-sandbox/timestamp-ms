@@ -19,7 +19,10 @@ module.exports = function(grunt) {
         src: ['test/unit/**/*.js']
       },
       system: {
-        options: { slow: 3000 },
+        options: {
+          slow: 2000,
+          timeout: 5000
+        },
         src: ['test/**/*.js']
       }
     },
