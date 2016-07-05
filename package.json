@@ -4,7 +4,8 @@
   "description": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "test": "node node_modules/grunt/bin/grunt test"
+    "dev": "grunt",
+    "test": "grunt test"
   },
   "author": "neverendingqs",
   "license": "MIT",
