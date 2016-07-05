@@ -1,9 +1,6 @@
 var express = require('express');
-var bodyParser = require('body-parser');
-
 var timestamp = require('../lib/timestamp');
 
-var jsonParser = bodyParser.json();
 var router = express.Router();
 
 router.get('/', function (req, res) {

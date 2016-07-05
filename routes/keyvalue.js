@@ -1,7 +1,6 @@
 var express = require('express');
-var bodyParser = require('body-parser');
+var jsonParser = require('body-parser').json();
 
-var jsonParser = bodyParser.json();
 var router = express.Router();
 
 var kvCollection;
