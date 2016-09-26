@@ -43,5 +43,39 @@ describe('/keyvalue', function() {
         done();
       });
   });
+
+  it('does not allow keys that have unsafe characters', function(done) {
+    var keyvalue = createUniqueKeyValue();
+    keyvalue.key = "<br />";
+
+    request(app)
+      .post('/keyvalue')
+      .set('Accept', 'application/json')
+      .send(keyvalue)
+      .expect(400)
+      .expect('Content-Type', /json/)
+      .end(function(err, res) {
+        if (err) return done(err);
+        assert.isTrue(res.body.hasOwnProperty('error'));
+        done();
+      });
+  });
+
+  it('does not allow values that have unsafe characters', function(done) {
+    var keyvalue = createUniqueKeyValue();
+    keyvalue.value = "<a href=\"www.google.com\">google</a>";
+
+    request(app)
+      .post('/keyvalue')
+      .set('Accept', 'application/json')
+      .send(keyvalue)
+      .expect(400)
+      .expect('Content-Type', /json/)
+      .end(function(err, res) {
+        if (err) return done(err);
+        assert.isTrue(res.body.hasOwnProperty('error'));
+        done();
+      });
+  });
 });
 

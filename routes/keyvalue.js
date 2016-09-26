@@ -5,6 +5,8 @@ var router = express.Router();
 
 var kvCollection;
 
+var safeChars = /^[a-zA-Z0-9\-]+$/;
+
 module.exports = function(db) {
   kvCollection = db.collection('keyvalue');
 
@@ -34,6 +36,11 @@ module.exports = function(db) {
   });
 
   router.post('/', jsonParser, function(req, res) {
+    if(!safeChars.test(req.body.key) || !safeChars.test(req.body.value)) {
+      res.status(400).json({ error: 'Only alphanumeric characters are allowed.' });
+      return;
+    }
+
     var key = req.body.key;
     var value = req.body.value;
 
